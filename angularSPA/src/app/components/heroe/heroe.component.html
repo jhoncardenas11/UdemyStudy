@@ -1,0 +1,21 @@
+
+<h1>{{heroe.nombre}}</h1>
+<hr />
+<div class="row">
+  <div class="col-md-4">
+    <img [src]="heroe.img" class="img-fluid" alt="" />
+    <p>
+
+
+    </p>
+    <button (click)="goBack()" class="btn btn-outline-danger btn-block">Back</button>
+  </div>
+  <div class="col-md-8">
+    <h3>{{heroe.nombre}}</h3>
+    <hr />
+    <p>
+      {{heroe.bio}}
+    </p>
+  </div>
+  <h5 class="mx-auto">{{heroe.casa}}</h5>
+</div>
