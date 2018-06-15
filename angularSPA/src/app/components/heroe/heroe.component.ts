@@ -19,7 +19,7 @@ heroe: any = {}
   ngOnInit() {
   }
   goBack() {
-    this.router.navigate(['heroes']);
+    this.router.navigate(['heroes', 'Navbar']);
   }
 
 }

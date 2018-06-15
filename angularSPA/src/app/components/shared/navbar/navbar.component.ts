@@ -7,14 +7,19 @@ import { Router } from '@angular/router'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  lastI: String
   constructor(private router: Router) {
   }
 
   ngOnInit() {
   }
-  buscarHeore(i: String) {
-    this.router.navigate(['heroes',i])
+  buscarHeroe(i: String) {
+      this.router.navigate(['heroes', i])
+      if ( i !== this.lastI ) {
+        window.location.reload()
+      }
+      this.lastI = i
+      console.log(this.lastI)
   }
 
 }

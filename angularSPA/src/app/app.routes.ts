@@ -7,11 +7,11 @@ import {HeoresComponent} from './components/heores/heores.component';
 import {HeroeComponent} from './components/heroe/heroe.component'
 
 const app_routes: Routes = [
-  {path:'home',component: HomeComponent },
-  {path:'about',component: AboutComponent },
-  {path:'heroes',component: HeoresComponent },
-  {path:'heroe/:id',component: HeroeComponent },
-  {path: '**', pathMatch:'full',redirectTo:'home'}
+  {path: 'home', component: HomeComponent },
+  {path: 'about', component: AboutComponent },
+  {path: 'heroes/:validatorSearch', component: HeoresComponent },
+  {path: 'heroe/:id', component: HeroeComponent },
+  {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ]
 
-export const app_routing = RouterModule.forRoot(app_routes, {useHash:true})
+export const app_routing = RouterModule.forRoot(app_routes, {useHash: true})

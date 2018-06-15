@@ -13,15 +13,15 @@ export class HeoresComponent implements OnInit {
   constructor( private _heoresService: HeroesService,
                private activatedRoute: ActivatedRoute,
                private router: Router ) {
-       this.activatedRoute.params.subscribe(params =>{
-          this.validatorSearch=params.validatorSearch
+       this.activatedRoute.params.subscribe(params => {
+          this.validatorSearch = params.validatorSearch
        })
   }
 
   ngOnInit() {
-    if(this.validatorSearch == 'Navbar'){
+    if (this.validatorSearch === 'Navbar') {
       this.heroes = this._heoresService.getHeroes()
-    } else{
+    } else {
       this.heroes = this._heoresService.searchHeroe(
         this.validatorSearch.toLowerCase())
     }
