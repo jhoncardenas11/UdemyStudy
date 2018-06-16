@@ -1,20 +1,110 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div class="container">
+  <p>
+
+
+
+  </p>
+  <h1 class="text-center">Pipes</h1>
+  <hr>
+  <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">Variable</th>
+      <th scope="col " class="text-center">Pipe</th>
+      <th scope="col" class="text-center">product</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--uppercase-->
+    <tr>
+      <td>{{title}}</td>
+      <td>uppercase</td>
+      <td>{{title | uppercase}}</td>
+    </tr>
+    <!--lowercase-->
+    <tr>
+      <td>{{title}}</td>
+      <td>lowercase</td>
+      <td>{{title | lowercase}}</td>
+    </tr>
+    <!--slice cortar desde 0 hasta... -->
+    <tr>
+      <td>{{title}}</td>
+      <td>slice:3</td>
+      <td>{{title | slice:3}}</td>
+    </tr>
+    <!--slice cortar desde 1 hasta 5 -->
+    <tr>
+      <td>arreglo</td>
+      <td>slice:1:5</td>
+      <td>{{arrego | slice:1:5}}</td>
+    </tr>
+    <!--number con min enter, min decimal - max decimal -->
+    <tr>
+      <td>{{pi}}</td>
+      <td>number:"¿minE?.¿minD?-¿maxD?"</td>
+      <td>{{pi | number:"3.1-3" }}</td>
+    </tr>
+    <!--porcentaje -->
+    <tr>
+      <td>{{percentNumber}}</td>
+      <td>percent-pipe</td>
+      <td>{{percentNumber | percent }}</td>
+    </tr>
+    <!--porcentaje con min enter, min decimal - max decimal -->
+    <tr>
+      <td>{{percentNumber}}</td>
+      <td>percent:"¿minE?.¿minD?-¿maxD?"</td>
+      <td>{{percentNumber | percent:"3.1-3" }}</td>
+    </tr>
+    <!--currency con min enter, min decimal - max decimal -->
+    <tr>
+      <td>{{currencyNumber}}</td>
+      <td>currency:"cod":symbol:decimal</td>
+      <td>{{currencyNumber | currency:'EUR':TRUE:"3.1-3" }}</td>
+    </tr>
+    <!--Asyn Promise -->
+    <tr>
+      <td>{{valorPromesa}}</td>
+      <td>Async</td>
+      <td>{{valorPromesa | async }}</td>
+    </tr>
+    <!--date  -->
+    <tr>
+      <td>{{cumpleanos}}</td>
+      <td>date: format</td>
+      <td>{{cumpleanos | date:'fullDate' }}</td>
+    </tr>
+    <!--capitalize  -->
+    <tr>
+      <td>{{name}}</td>
+      <td>capitalize</td>
+      <td>{{name | capitalize }}</td>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+  <div class="col-md-1"></div>
+  <ul class="list-group col-sm-2">
+    <li class="list-group-item text-center" *ngFor="let pos of arrego | slice:0:3">{{pos}}</li>
+  </ul>
+  <!--json -->
+  <div class="col-md-4">
+      <h4 class="text-center">JSON</h4>
+      <hr />
+      <pre>
+        {{heroe | json}}
+      </pre>
+  </div>
+  <!-- DomSecure Youtube -->
+  <div class="col-md-5 mx-auto">
+      <h4 class="text-center">Youtube</h4>
+      <hr />
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" [src]="youtube | domSecure" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+  </div>
+</div>
+<br><br>
+</div>
