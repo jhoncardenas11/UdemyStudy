@@ -16,15 +16,16 @@ export class HeoresComponent implements OnInit {
        this.activatedRoute.params.subscribe(params => {
           this.validatorSearch = params.validatorSearch
        })
+       if (this.validatorSearch === 'Navbar') {
+         this.heroes = this._heoresService.getHeroes()
+       } else {
+         this.heroes = this._heoresService.searchHeroe(
+           this.validatorSearch.toLowerCase())
+       }
   }
 
   ngOnInit() {
-    if (this.validatorSearch === 'Navbar') {
-      this.heroes = this._heoresService.getHeroes()
-    } else {
-      this.heroes = this._heoresService.searchHeroe(
-        this.validatorSearch.toLowerCase())
-    }
+
 
   }
   verHeroe(i: number) {
