@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
-import { Promise } from 'q';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -8,28 +8,31 @@ import { Promise } from 'q';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-   albumes: any=[]
-   image=[]
+   albumes: any = []
+   image = []
    loading: boolean
    prueba: any
-  constructor(private spotify: SpotifyService ) {
-     this.loading= true
-    this.albumes= spotify.getNewReleases() 
+  constructor(private spotify: SpotifyService, private router: Router ) {
+     this.loading = true
+    this.albumes = spotify.getNewReleases()
     console.log(this.albumes)
-    
-    this.loading=false
+
+    this.loading = false
    }
 
   ngOnInit() {
   }
-  reload(){
-    var images= []
+  reload() {
+    const images = []
     this.albumes.forEach(element => {
       images.push(element.images)
-      
+
     })
-    this.image=images
-    
+    this.image = images
+
+  }
+  OnClickArtist(id: string) {
+    this.router.navigate(['/artista', id])
   }
 
 }

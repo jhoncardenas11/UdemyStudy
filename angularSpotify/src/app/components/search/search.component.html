@@ -5,7 +5,7 @@
 </div>
 <app-loading class="m-5  animate fadeIn" *ngIf="loading"></app-loading>
 <div class="card-columns m-5  animate fadeIn" *ngIf="!loading">
-  <div class="card" *ngFor="let artist of artistes">
+  <div (click)="OnClickArtist(artist.id)"class="card puntero" *ngFor="let artist of artistes">
     <img class="card-img-top" [src]="artist.image" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{artist.name}}</h5>

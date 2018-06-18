@@ -61,3 +61,4 @@ typings/
 .next
 angularSPA/package-lock.json
 angularPIPES/package-lock.json
+angularSpotify/package-lock.json

@@ -13,6 +13,7 @@ import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http'
 import { SpotifyService } from './services/spotify.service';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { ArtistSimpleComponent } from './components/artist-simple/artist-simple.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     SearchComponent,
     ArtistComponent,
     NavbarComponent,
-    LoadingComponent
+    LoadingComponent,
+    ArtistSimpleComponent
   ],
   imports: [
     BrowserModule,

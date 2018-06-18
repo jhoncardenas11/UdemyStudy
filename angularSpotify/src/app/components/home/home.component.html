@@ -1,11 +1,11 @@
 <app-loading *ngIf="loading" class=" animate fadeIn"></app-loading>
 <div class="container m-2  animate fadeIn">
   <div class="card-columns">
-    <div class="card" *ngFor="let album of albumes" >
+    <div  class="card" *ngFor="let album of albumes" >
       <img class="card-img-top" src="{{album.images}}" alt="Card image cap">
       <div class="card-body" >
         <h5 class="card-title">{{album.name}}</h5>
-        <span class="badge badge-pill badge-primary" *ngFor="let artista of album.artists">{{artista.name}}</span>}
+        <span (click)="OnClickArtist(artista.id)" class="badge badge-pill badge-primary puntero" *ngFor="let artista of album.artists">{{artista.name}}</span>}
       </div>
     </div>
   </div>
