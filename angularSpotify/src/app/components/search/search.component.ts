@@ -14,11 +14,6 @@ export class SearchComponent implements OnInit {
    }
   ngOnInit() {
   }
-  buscar(busqueda: string) {
-    this.loading = true
-    this.artistes = this.spotify.getSearch( busqueda )
-    this.loading = false
-  }
   OnClickArtist(id: string) {
     this.router.navigate(['/artista', id])
   }
