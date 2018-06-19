@@ -29,7 +29,7 @@
           <td class="text-center">{{track.album}}</td>
           <td class="text-center">{{track.name}}</td>
           <td >
-              <iframe [src]="track.preview | domSecure:'https://open.spotify.com/embed?uri='"  width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <iframe [src]="track.preview | domSecure:uri"  width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </td>
         </tr>
       </tbody>

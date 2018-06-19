@@ -14,6 +14,7 @@ export class ArtistSimpleComponent implements OnInit {
   loading: boolean
   topTracks: any = []
   headersTable = ['Foto','Album','Canción','Vista Previa']
+  uri='https://open.spotify.com/embed?uri='
   constructor(private route: ActivatedRoute,
               private spotify: SpotifyService) {
     this.loading= true
