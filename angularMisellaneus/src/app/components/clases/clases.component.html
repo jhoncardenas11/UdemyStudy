@@ -4,3 +4,10 @@
 <button [ngClass]="claseB" (click)="change()">
   <i class="fa fa-anchor" ></i>
 </button>
+<hr>
+<h3 class="m-2">Proceso asincrono</h3>
+<button class="m-2 btn btn-primary" type="button" name="button" (click)="ejecutar()" [disabled]="loading">
+  <i [ngClass]="{'fa-save': !loading,'fa-sync fa-spin': loading}" class="m-1 fa"></i>
+  <span *ngIf="!loading">Guardar</span> 
+  <span *ngIf="loading">Espere</span> 
+</button>

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ClasesComponent implements OnInit {
   clase = 'alert-primary'
   claseB = 'btn btn-dark m-3'
+  loading: boolean
   constructor() { }
 
   ngOnInit() {
@@ -20,6 +21,10 @@ export class ClasesComponent implements OnInit {
       this.clase = 'alert-primary'
       this.claseB = 'btn btn-dark m-3'
     }
+  }
+  ejecutar() {
+    this.loading = true
+    setTimeout(() => this.loading = false, 3000);
   }
 
 }
