@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { SpotifyService } from './services/spotify.service';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { ArtistSimpleComponent } from './components/artist-simple/artist-simple.component';
+import { DomSecurePipePipe } from './pipes/dom-secure-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ArtistSimpleComponent } from './components/artist-simple/artist-simple.
     ArtistComponent,
     NavbarComponent,
     LoadingComponent,
-    ArtistSimpleComponent
+    ArtistSimpleComponent,
+    DomSecurePipePipe
   ],
   imports: [
     BrowserModule,

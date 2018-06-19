@@ -16,9 +16,7 @@ export class SearchComponent implements OnInit {
   }
   buscar(busqueda: string) {
     this.loading = true
-    console.log(busqueda)
     this.artistes = this.spotify.getSearch( busqueda )
-    console.log(this.artistes)
     this.loading = false
   }
   OnClickArtist(id: string) {

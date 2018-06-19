@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Album } from '../objects/album';
 import { Artist } from '../objects/artist';
 import { ArtistPage } from '../objects/artist-page';
+import { Track } from '../objects/track';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
-  token =  'BQDax0TJL6PJL2rPONx4yqfh0R1eKw4y3_NfrtIZHxKINUnMEuuwFFKrNYD_nfBdHLvFbjKZylwHrgNt0UVKnerkcnHa0E5e6HagxFeQIWhkWZLHJ_niDVzMXR6awdIikcuRXsJMjaI91IhR6JLMPJlAYv86cw'
+  token =  'BQDDH4JsmOrHhtGmrg3fzFhOwLPhLjJuF8r1MEFEW7IivmWyWmsXMkJrbzUWL2ZJHI6X-694CB8lGsdWhTVnq3kahXmNdIgCcTQKEwqVBQvqyjmGmvPuBgysOhQ1g9SEq5oSIHFtmL76qISFsb3ZUzPcqMI_yA'
   uri= 'https://api.spotify.com/v1/'
   constructor(private http: HttpClient) {
    }
@@ -72,12 +73,44 @@ export class SpotifyService {
         artist.name= data.name
         artist.followers= data.followers.total
         artist.link=data.external_urls.spotify
+        try {
+          artist.imagen=  data.images[0].url
+        } catch (error) {
+          artist.imagen=  './../../assets/img/not-found.png'
+        }
         /* data.generes.forEach(element => {
           artist.generes.push(element)
         }); */ 
       }
     )
     return artist
+  }
+  getTopTracks(id: string){
+    var topTracks= []
+    const headers = new HttpHeaders({
+      'Authorization': 
+      `Bearer ${this.token}`
+    })
+    this.http.get(`${this.uri}artists/${id}/top-tracks?country=ES`,{headers}).subscribe(
+      (data: any) => {
+        
+        console.log(data.tracks)
+        data.tracks.forEach(element => {
+          var track= new Track()
+          track.name= element.name
+          track.album= element.album.name
+          try {
+            track.image= element.album.images[0].url
+          } catch (error) {
+            track.image= './../../assets/img/not-found.png'
+          } 
+          track.preview=element.uri
+          topTracks.push(track)
+        });
+
+      }
+    )
+    return topTracks
   }
 }
 
