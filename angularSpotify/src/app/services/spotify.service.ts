@@ -9,7 +9,7 @@ import { Track } from '../objects/track';
   providedIn: 'root'
 })
 export class SpotifyService {
-  token =  'BQDDH4JsmOrHhtGmrg3fzFhOwLPhLjJuF8r1MEFEW7IivmWyWmsXMkJrbzUWL2ZJHI6X-694CB8lGsdWhTVnq3kahXmNdIgCcTQKEwqVBQvqyjmGmvPuBgysOhQ1g9SEq5oSIHFtmL76qISFsb3ZUzPcqMI_yA'
+  token =  'BQDhqGVN77ScM8LeL2ZySFbohiyX3ZOJAbQyfJbfAXNNtdXuVWZFRmCVNOeNhdGyt6Xrnhp1k6t42S7__pwSzfxnUjhlgxXfCFza93ZyMH6aaTdwBSdyd--cFDNVqxNNvOc0wJRXVq78En5KXZ5xFPvagqwEFQ'
   uri= 'https://api.spotify.com/v1/'
   constructor(private http: HttpClient) {
    }
@@ -30,6 +30,8 @@ export class SpotifyService {
         album.release_date= element.release_date
         albumes.push(album)
       });
+    },(errorService)=>{
+      albumes.push(errorService.error.error.message)
     })
     return albumes;
   }

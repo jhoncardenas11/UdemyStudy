@@ -11,14 +11,11 @@ export class HomeComponent implements OnInit {
    albumes: any = []
    image = []
    loading: boolean
-   prueba: any
   constructor(private spotify: SpotifyService, private router: Router ) {
-     this.loading = true
+     this.loading = false
     this.albumes = spotify.getNewReleases()
-    console.log(this.albumes)
 
-    this.loading = false
-   }
+  }
 
   ngOnInit() {
   }
