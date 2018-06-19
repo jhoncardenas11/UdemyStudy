@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clases.component.css']
 })
 export class ClasesComponent implements OnInit {
-
+  clase = 'alert-primary'
+  claseB = 'btn btn-dark m-3'
   constructor() { }
 
   ngOnInit() {
+  }
+  change() {
+    if (this.clase === 'alert-primary') {
+      this.clase = 'alert-secondary'
+      this.claseB = 'btn btn-primary m-3'
+    } else {
+      this.clase = 'alert-primary'
+      this.claseB = 'btn btn-dark m-3'
+    }
   }
 
 }
